@@ -8,15 +8,9 @@ pub enum Formula {
 
     Not(Box<Formula>),
 
-    And(
-        Box<Formula>,
-        Box<Formula>,
-    ),
+    And(Box<Formula>, Box<Formula>),
 
-    Or(
-        Box<Formula>,
-        Box<Formula>,
-    ),
+    Or(Box<Formula>, Box<Formula>),
 
     Eventually {
         local: Interval,

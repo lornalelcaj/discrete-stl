@@ -21,13 +21,13 @@ impl Interval {
     }
 
     pub fn shift_left(&self, tau: usize) -> Option<Interval> {
-    if self.upper < tau {
-        return None;
+        if self.upper < tau {
+            return None;
+        }
+
+        let lower = self.lower.saturating_sub(tau);
+        let upper = self.upper - tau;
+
+        Some(Interval { lower, upper })
     }
-
-    let lower = self.lower.saturating_sub(tau);
-    let upper = self.upper - tau;
-
-    Some(Interval { lower, upper })
-}
 }
